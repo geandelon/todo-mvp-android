@@ -5,6 +5,10 @@ import digaoperadora.delon.br.teste.base.BaseMvpActivity
 
 class SplashActivity : BaseMvpActivity<SplashPresenter, SplashViewModel>() {
 
+    override fun getClasseViewModel(): Class<SplashViewModel> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getClassePresenter(): Class<SplashPresenter> {
         return SplashPresenter::class.java
     }
