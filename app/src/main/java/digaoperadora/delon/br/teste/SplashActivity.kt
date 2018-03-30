@@ -5,9 +5,7 @@ import digaoperadora.delon.br.teste.base.BaseMvpActivity
 
 class SplashActivity : BaseMvpActivity<SplashPresenter, SplashViewModel>() {
 
-    override fun getClassePresenter(): Class<SplashPresenter> {
-        return SplashPresenter::class.java
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
