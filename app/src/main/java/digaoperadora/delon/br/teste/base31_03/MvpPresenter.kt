@@ -17,6 +17,8 @@ import android.arch.lifecycle.ViewModel
  */
 open abstract class MvpPresenter<V> : ViewModel(), LifecycleObserver {
 
+    abstract val TAG : String
+
     protected var view: V? = null
         private set
 
