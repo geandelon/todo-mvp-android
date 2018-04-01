@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 
-open abstract class MvpActivity<P : MvpPresenter<V>, V> : AppCompatActivity(), LifecycleOwner {
+open abstract class MvpActivity<P : MvpPresenter> : AppCompatActivity(), LifecycleOwner {
 
     @LayoutRes abstract fun getLayoutID() :  Int
 
-    lateinit var viewModel: MvpPresenter<V>
+    lateinit var viewModel: MvpPresenter
 
     fun getPresenter() = ( this.viewModel ?: ViewModelProviders.of(this).get(getClassePresenter()) ) as P
 
@@ -22,13 +22,13 @@ open abstract class MvpActivity<P : MvpPresenter<V>, V> : AppCompatActivity(), L
 
         viewModel = ViewModelProviders.of(this).get(getClassePresenter()) as P
         viewModel.attachLifecycle(lifecycle)
-        viewModel.attachView(this as V)
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         viewModel.detachLifecycle(lifecycle)
-        viewModel.detachView()
+
     }
 
 }

@@ -5,7 +5,7 @@ import digaoperadora.delon.br.teste.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
-class SplashActivity : MvpActivity<SplashPresenter, SplashView>(), SplashView {
+class SplashActivity : MvpActivity<SplashPresenter>(), SplashView {
     override fun getLayoutID(): Int {
         return R.layout.activity_main
     }

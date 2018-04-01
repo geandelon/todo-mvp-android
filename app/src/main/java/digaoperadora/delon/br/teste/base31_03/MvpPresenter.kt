@@ -15,24 +15,9 @@ import android.arch.lifecycle.ViewModel
  *
  * Estou tentando mininmizar o problema removendo a referência da activity no
  */
-open abstract class MvpPresenter<V> :   ViewModel(),  LifecycleObserver {
+open abstract class MvpPresenter :   ViewModel(),  LifecycleObserver {
 
     abstract val TAG : String
-
-    protected var view: V? = null
-        private set
-
-    fun attachView(view: V) {
-        this.view = view
-    }
-
-    fun detachView() {
-        this.view = null
-    }
-
-    protected val isViewAttached: Boolean
-        get() = view != null
-
 
     fun attachLifecycle(lifecycle: Lifecycle) {
         lifecycle.addObserver(this)
@@ -43,6 +28,5 @@ open abstract class MvpPresenter<V> :   ViewModel(),  LifecycleObserver {
     }
 
     fun onPresenterDestroy() {
-
     }
 }

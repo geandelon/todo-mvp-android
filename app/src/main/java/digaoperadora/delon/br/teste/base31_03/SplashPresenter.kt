@@ -5,11 +5,10 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
 
-class SplashPresenter : MvpPresenter<SplashView>() {
+class SplashPresenter : MvpPresenter() {
     override val TAG: String = SplashPresenter::class.java.simpleName
 
     lateinit var evento : (Int)->Unit
-
 
     public fun setOnContadorChange(evento:(Int)->Unit ): Unit {
         this.evento = evento
@@ -32,7 +31,7 @@ class SplashPresenter : MvpPresenter<SplashView>() {
         Log.d(TAG, "ON_CREATE")
         contador++
         Log.d(TAG, contador.toString())
-        Log.d(TAG, "isViewAttached: ${isViewAttached.toString()}" )
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -40,7 +39,7 @@ class SplashPresenter : MvpPresenter<SplashView>() {
         Log.d(TAG, "ON_START")
         contador++
         Log.d(TAG, contador.toString())
-        Log.d(TAG, "isViewAttached: ${isViewAttached.toString()}" )
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
@@ -48,7 +47,7 @@ class SplashPresenter : MvpPresenter<SplashView>() {
         Log.d(TAG, "ON_RESUME")
         contador++
         Log.d(TAG, contador.toString())
-        Log.d(TAG, "isViewAttached: ${isViewAttached.toString()}" )
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
@@ -56,16 +55,16 @@ class SplashPresenter : MvpPresenter<SplashView>() {
         Log.d(TAG, "ON_PAUSE")
         contador++
         Log.d(TAG, contador.toString())
-        Log.d(TAG, "isViewAttached: ${isViewAttached.toString()}" )
+
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun fdf5() {
         Log.d(TAG, "ON_STOP")
         contador++
-        detachView()
+
         Log.d(TAG, contador.toString())
-        Log.d(TAG, "isViewAttached: ${isViewAttached.toString()}" )
+
     }
 
 }
