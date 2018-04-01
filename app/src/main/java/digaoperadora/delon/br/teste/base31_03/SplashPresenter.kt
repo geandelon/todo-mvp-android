@@ -1,14 +1,28 @@
 package maximasistemas.com.br.todomxsmvp.ui.base31_03
 
 import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
 
 class SplashPresenter : MvpPresenter<SplashView>() {
     override val TAG: String = SplashPresenter::class.java.simpleName
 
+    lateinit var evento : (Int)->Unit
+
+
+    public fun setOnContadorChange(evento:(Int)->Unit ): Unit {
+        this.evento = evento
+    }
+
+
 
     var contador: Int = 0
+    set(value) {
+        evento(value)
+        field = value
+    }
+
 
     fun abc() {
     }

@@ -15,7 +15,7 @@ import android.arch.lifecycle.ViewModel
  *
  * Estou tentando mininmizar o problema removendo a referência da activity no
  */
-open abstract class MvpPresenter<V> : ViewModel(), LifecycleObserver {
+open abstract class MvpPresenter<V> :   ViewModel(),  LifecycleObserver {
 
     abstract val TAG : String
 
