@@ -1,4 +1,4 @@
-package maximasistemas.com.br.todomxsmvp.ui.base31_03
+package digaoperadora.delon.br.teste.mvvm
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.ViewModelProviders
@@ -6,11 +6,12 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 
-open abstract class MvpActivity<P : MvpPresenter> : AppCompatActivity(), LifecycleOwner {
+abstract class MvvmActivity<P : BaseViewModel> : AppCompatActivity(), LifecycleOwner {
 
-    @LayoutRes abstract fun getLayoutID() :  Int
+    @LayoutRes
+    abstract fun getLayoutID() :  Int
 
-    lateinit var viewModel: MvpPresenter
+    lateinit var viewModel: P
 
     fun getPresenter() = ( this.viewModel ?: ViewModelProviders.of(this).get(getClassePresenter()) ) as P
 
@@ -29,5 +30,4 @@ open abstract class MvpActivity<P : MvpPresenter> : AppCompatActivity(), Lifecyc
         super.onDestroy()
         viewModel.detachLifecycle(lifecycle)
     }
-
 }

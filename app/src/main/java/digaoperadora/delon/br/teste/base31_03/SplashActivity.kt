@@ -20,7 +20,7 @@ class SplashActivity : MvpActivity<SplashPresenter>(), SplashView {
     }
 
     override fun iniciarTela() {
-      getPresenter().setOnContadorChange(::atualizaContador)
+     // getPresenter().setOnContadorChange(::atualizaContador)
     }
 
     protected fun atualizaContador(contador : Int){

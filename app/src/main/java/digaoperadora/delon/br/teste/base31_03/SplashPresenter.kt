@@ -9,7 +9,7 @@ class SplashPresenter : MvpPresenter() {
     override val TAG: String = SplashPresenter::class.java.simpleName
 
     var evento: (Int) -> Unit = {
-        Log.d(TAG, "Evento do Presenter sem implementação na visão, recebeu um valor:  ${it}, como parametro")
+        Log.d(TAG_EVENTO_PADRAO, "Evento do Presenter sem implementação na visão, recebeu um valor:  ${it}, como parametro")
     }
 
     public fun setOnContadorChange(evento: (Int) -> Unit): Unit {
