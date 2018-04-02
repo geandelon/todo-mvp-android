@@ -1,4 +1,6 @@
-package maximasistemas.com.br.todomxsmvp.ui.base31_03
+package br.com.maximasistemas.todo.splash
+
+import br.com.maximasistemas.todo.base.MvpActivity
 
 class SplashActivity : MvpActivity<SplashPresenter, SplashView>(), SplashView {
 

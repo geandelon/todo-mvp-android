@@ -1,4 +1,4 @@
-package maximasistemas.com.br.todomxsmvp.ui.base31_03
+package br.com.maximasistemas.todo.base
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
@@ -15,7 +15,7 @@ import android.arch.lifecycle.ViewModel
  *
  * Estou tentando mininmizar o problema removendo a referência da activity no
  */
-open abstract class MvpPresenter<V> : ViewModel(), LifecycleObserver {
+abstract class MvpPresenter<V> : ViewModel(), LifecycleObserver {
 
     protected var view: V? = null
         private set

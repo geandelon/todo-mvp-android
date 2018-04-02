@@ -1,8 +1,9 @@
-package maximasistemas.com.br.todomxsmvp.ui.base31_03
+package br.com.maximasistemas.todo.splash
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
+import br.com.maximasistemas.todo.base.MvpPresenter
 
 class SplashPresenter : MvpPresenter<SplashView>() {
 

@@ -1,11 +1,11 @@
-package maximasistemas.com.br.todomxsmvp.ui.base31_03
+package br.com.maximasistemas.todo.base
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-open abstract class MvpActivity<P : MvpPresenter<V>, V> : AppCompatActivity(), LifecycleOwner {
+abstract class MvpActivity<P : MvpPresenter<V>, V> : AppCompatActivity(), LifecycleOwner {
 
     lateinit var viewModel: MvpPresenter<V>
 
