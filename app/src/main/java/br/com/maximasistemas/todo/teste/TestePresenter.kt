@@ -1,11 +1,11 @@
-package br.com.maximasistemas.todo.splash
+package br.com.maximasistemas.todo.teste
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
 import br.com.maximasistemas.todo.base.MvpPresenter
 
-class SplashPresenter : MvpPresenter<SplashView>() {
+class TestePresenter : MvpPresenter<TesteView>() {
 
     var contador: Int = 0
 
@@ -14,37 +14,37 @@ class SplashPresenter : MvpPresenter<SplashView>() {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun fdf4() {
-        Log.d("SplashPresenter", "ON_CREATE")
+        Log.d("TestePresenter", "ON_CREATE")
         contador++
-        Log.d("SplashPresenter", contador.toString())
+        Log.d("TestePresenter", contador.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun fdf() {
-        Log.d("SplashPresenter", "ON_START")
+        Log.d("TestePresenter", "ON_START")
         contador++
-        Log.d("SplashPresenter", contador.toString())
+        Log.d("TestePresenter", contador.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun fdf2() {
-        Log.d("SplashPresenter", "ON_RESUME")
+        Log.d("TestePresenter", "ON_RESUME")
         contador++
-        Log.d("SplashPresenter", contador.toString())
+        Log.d("TestePresenter", contador.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun fdf3() {
-        Log.d("SplashPresenter", "ON_PAUSE")
+        Log.d("TestePresenter", "ON_PAUSE")
         contador++
-        Log.d("SplashPresenter", contador.toString())
+        Log.d("TestePresenter", contador.toString())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun fdf5() {
-        Log.d("SplashPresenter", "ON_STOP")
+        Log.d("TestePresenter", "ON_STOP")
         contador++
-        Log.d("SplashPresenter", contador.toString())
+        Log.d("TestePresenter", contador.toString())
     }
 
 }
