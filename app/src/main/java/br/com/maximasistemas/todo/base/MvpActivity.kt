@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-abstract class MvpActivity<P : MvpPresenter<V>, V> : AppCompatActivity(), LifecycleOwner {
+abstract class MvpActivity<V, P : MvpPresenter<V>> : AppCompatActivity(), LifecycleOwner {
 
     lateinit var viewModel: MvpPresenter<V>
 
