@@ -1,54 +1,36 @@
 package digaoperadora.delon.br.teste.mvvm
 
 import android.util.Log
+import digaoperadora.delon.br.teste.mvvm.BaseViewModel.Modelo.Valor
 
 class VmContador : BaseViewModel() {
 
+    override var modelo : Modelo<*> = Modelo.Valor(0)
 
-    var eventoIncrementaEmX   : (x : Int)->Unit = {x: Int -> contador + x }
-        set(value) {
-            value?.let {
-                 field = it
-            }
-        }
-    var eventoIncrementaEmUm  : ()->Unit = { contador.inc() }
-        set(value) {
-            value?.let {
-                field = it
-            }
-        }
-    var eventoDecromentaEmX   : (x : Int)->Unit = {x: Int -> contador - x }
-        set(value) {
-            value?.let {
-                field = it
-            }
-        }
-    var eventoDecromentaEmUm  : ()->Unit = { contador.dec() }
-        set(value) {
-            value?.let {
-                field = it
-            }
-        }
-
-    var observerCallBack : (contador: Int)->Unit ={ Log.d(TAG, "Evento do Presenter sem implementação na visão, recebeu um valor:  ${it}, como parametro") }
-    set(value) {
-        value?.let {
-            field = it
-        }
+    fun eventoIncrementaEmUm(){
+        this.contador++
+    }
+    fun eventoDecrementaEmUm(){
+        this.contador = this.contador - 1
+    }
+    fun CallBack(evento : (valor : Int)->Unit ) {
+        observerCallBack = evento ?: observerCallBack
     }
 
 
-    var AnyToModelo : (Any)->Int = { any: Any -> any as Int}
-    set(value) {
-        if(value != null ) field = value
-    }
+    private var observerCallBack : (valor : Int)->Unit ={ Log.d(TAG, "Evento do Presenter sem implementação na visão, recebeu um valor:  ${it}, como parametro") }
+
+
+    //thimodelo =  Modelo.Valor<Int>.value(0)
+
 
     var contador : Int = 0
-    set(value) {}
+    set(value) {
+        field = value
+        observerCallBack(value)
 
-    override fun getModelo(): Any {
-        return contador
     }
+
 
 
     override val TAG: String

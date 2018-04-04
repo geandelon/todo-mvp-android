@@ -23,7 +23,7 @@ class SplashActivity : MvpActivity<SplashPresenter>(), SplashView {
      // getPresenter().setOnContadorChange(::atualizaContador)
     }
 
-    protected fun atualizaContador(contador : Int){
+    fun atualizaContador(contador : Int){
         tvContador.text = "${contador}"
     }
 

@@ -11,7 +11,18 @@ import kotlin.properties.Delegates
 
 abstract class BaseViewModel : ViewModel(), LifecycleObserver {
 
-    abstract fun  getModelo() : Any
+
+
+
+    abstract var modelo : Modelo<*>
+
+
+    sealed class Modelo<T>(open var value: T?) {
+        object Vazio : Modelo<Nothing>(null)
+        data class Valor<T>(override var value: T?) : Modelo<T>(null)
+    }
+
+
 
     private val TAG_EVENTO_ON_CREATE  = "Evento Padrao: ON_CREATE"
     private val TAG_EVENTO_ON_START   = "Evento Padrao: ON_START"
