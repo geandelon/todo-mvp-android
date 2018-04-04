@@ -3,7 +3,13 @@ package digaoperadora.delon.br.teste.mvvm
 import android.util.Log
 import digaoperadora.delon.br.teste.mvvm.BaseViewModel.Modelo.Valor
 
-class VmContador : BaseViewModel() {
+class ContadorViewModel : BaseViewModel() {
+
+    override fun InicializarValores() {
+        onResume = { observerCallBack(contador)
+            Log.v(TAG, "Atualizado valor(${contador}) do contador no OnResume ")
+        }
+    }
 
     override var modelo : Modelo<*> = Modelo.Valor(0)
 
@@ -11,7 +17,7 @@ class VmContador : BaseViewModel() {
         this.contador++
     }
     fun eventoDecrementaEmUm(){
-        this.contador = this.contador - 1
+        this.contador--
     }
     fun CallBack(evento : (valor : Int)->Unit ) {
         observerCallBack = evento ?: observerCallBack
@@ -31,10 +37,12 @@ class VmContador : BaseViewModel() {
 
     }
 
-
-
     override val TAG: String
-        get() = VmContador::class.java.simpleName
+        get() = ContadorViewModel::class.java.simpleName
+
+
+
+
 
 
 }

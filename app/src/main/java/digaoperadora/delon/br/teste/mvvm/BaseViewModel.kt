@@ -16,6 +16,14 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver {
 
     abstract var modelo : Modelo<*>
 
+    abstract fun InicializarValores()
+
+    init {
+
+        InicializarValores()
+
+    }
+
 
     sealed class Modelo<T>(open var value: T?) {
         object Vazio : Modelo<Nothing>(null)
@@ -32,27 +40,27 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver {
     private val TAG_EVENTO_ON_DESTROY = "Evento Padrao: ON_DESTROY"
 
 
-    var onCreate: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_CREATE) }
+    protected var onCreate: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_CREATE) }
         set(value) {
             if (value != null) field = value
         }
-    var onStart: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_START) }
+    protected var onStart: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_START) }
         set(value) {
             if (value != null) field = value
         }
-    var onResume: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_RESUME) }
+    protected var onResume: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_RESUME) }
         set(value) {
             if (value != null) field = value
         }
-    var onPause: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_PAUSE) }
+    protected var onPause: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_PAUSE) }
         set(value) {
             if (value != null) field = value
         }
-    var onStop: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_STOP) }
+    protected var onStop: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_STOP) }
         set(value) {
             if (value != null) field = value
         }
-    var onDestroy: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_DESTROY) }
+    protected var onDestroy: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_DESTROY) }
         set(value) {
             if (value != null) field = value
         }
