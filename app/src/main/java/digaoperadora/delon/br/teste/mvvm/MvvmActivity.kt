@@ -9,11 +9,11 @@ import android.support.v7.app.AppCompatActivity
 abstract class MvvmActivity<P : BaseViewModel> : AppCompatActivity(), LifecycleOwner {
 
     @LayoutRes
-    abstract fun getLayoutID() :  Int
+    abstract fun getLayoutID(): Int
 
     lateinit var viewModel: P
 
-    fun getPresenter() = ( this.viewModel ?: ViewModelProviders.of(this).get(getClassePresenter()) ) as P
+    fun getPresenter() = (this.viewModel)
 
     abstract fun getClassePresenter(): Class<P>
 
@@ -21,7 +21,7 @@ abstract class MvvmActivity<P : BaseViewModel> : AppCompatActivity(), LifecycleO
         super.onCreate(savedInstanceState)
         setContentView(getLayoutID())
 
-        viewModel = ViewModelProviders.of(this).get(getClassePresenter()) as P
+        viewModel = ViewModelProviders.of(this).get(getClassePresenter())
         viewModel.attachLifecycle(lifecycle)
 
     }

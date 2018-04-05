@@ -5,65 +5,66 @@ import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
 import android.arch.lifecycle.ViewModel
 import android.util.Log
-import java.lang.reflect.Type
-import kotlin.properties.Delegates
 
 
 abstract class BaseViewModel : ViewModel(), LifecycleObserver {
 
+    private val TAG_EVENTO_ON_CREATE  = "ON_CREATE"
+    private val TAG_EVENTO_ON_START   = "ON_START"
+    private val TAG_EVENTO_ON_RESUME  = "ON_RESUME"
+    private val TAG_EVENTO_ON_PAUSE   = "ON_PAUSE"
+    private val TAG_EVENTO_ON_STOP    = "ON_STOP"
+    private val TAG_EVENTO_ON_DESTROY = "ON_DESTROY"
 
-
-
-    abstract var modelo : Modelo<*>
-
-    abstract fun InicializarValores()
-
-    init {
-
-        InicializarValores()
-
+    protected fun setOnLifecycleEventCreate(evento: () -> Unit) {
+        onCreate = {
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_CREATE}")
+        }
+    }
+    protected fun setOnLifecycleEventStart(evento: () -> Unit) {
+        onStart = {
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_START}")
+        }
+    }
+    protected fun setOnLifecycleEventResume(evento: () -> Unit) {
+        onResume = {
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_RESUME}")
+        }
+    }
+    protected fun setOnLifecycleEventPause(evento: () -> Unit) {
+        onPause ={
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_PAUSE}")
+        }
+    }
+    protected fun setOnLifecycleEventStop(evento: () -> Unit) {
+        onStop = {
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_STOP}")
+        }
+    }
+    protected fun setOnLifecycleEventDestroy(evento: () -> Unit) {
+        onDestroy = {
+            evento.invoke()
+            Log.d(TAG, "Evento Customizado: ${TAG_EVENTO_ON_DESTROY}")
+        }
     }
 
 
-    sealed class Modelo<T>(open var value: T?) {
-        object Vazio : Modelo<Nothing>(null)
-        data class Valor<T>(override var value: T?) : Modelo<T>(null)
-    }
+    private var onCreate: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_CREATE}") }
 
+    private var onStart: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_START}") }
 
+    private var onResume: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_RESUME}") }
 
-    private val TAG_EVENTO_ON_CREATE  = "Evento Padrao: ON_CREATE"
-    private val TAG_EVENTO_ON_START   = "Evento Padrao: ON_START"
-    private val TAG_EVENTO_ON_RESUME  = "Evento Padrao: ON_RESUME"
-    private val TAG_EVENTO_ON_PAUSE   = "Evento Padrao: ON_PAUSE"
-    private val TAG_EVENTO_ON_STOP    = "Evento Padrao: ON_STOP"
-    private val TAG_EVENTO_ON_DESTROY = "Evento Padrao: ON_DESTROY"
+    private var onPause: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_PAUSE}") }
 
+    private var onStop: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_STOP}") }
 
-    protected var onCreate: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_CREATE) }
-        set(value) {
-            if (value != null) field = value
-        }
-    protected var onStart: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_START) }
-        set(value) {
-            if (value != null) field = value
-        }
-    protected var onResume: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_RESUME) }
-        set(value) {
-            if (value != null) field = value
-        }
-    protected var onPause: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_PAUSE) }
-        set(value) {
-            if (value != null) field = value
-        }
-    protected var onStop: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_STOP) }
-        set(value) {
-            if (value != null) field = value
-        }
-    protected var onDestroy: () -> Unit = { Log.d(TAG, TAG_EVENTO_ON_DESTROY) }
-        set(value) {
-            if (value != null) field = value
-        }
+    private var onDestroy: () -> Unit = { Log.d(TAG, "Evento Padrao: ${TAG_EVENTO_ON_DESTROY}") }
 
 
     abstract val TAG: String
