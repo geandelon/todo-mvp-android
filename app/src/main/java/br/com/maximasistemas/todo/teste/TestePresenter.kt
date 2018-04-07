@@ -3,7 +3,7 @@ package br.com.maximasistemas.todo.teste
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
-import br.com.maximasistemas.todo.base.MvpPresenter
+import br.com.maximasistemas.arch.mvp.MvpPresenter
 
 class TestePresenter : MvpPresenter<TesteView>() {
 

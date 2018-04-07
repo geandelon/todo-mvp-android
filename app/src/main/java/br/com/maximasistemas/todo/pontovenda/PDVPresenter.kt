@@ -1,6 +1,6 @@
 package br.com.maximasistemas.todo.pontovenda
 
-import br.com.maximasistemas.todo.base.MvpPresenter
+import br.com.maximasistemas.arch.mvp.MvpPresenter
 
 class PDVPresenter : MvpPresenter<PDVView>() {
 

@@ -1,6 +1,6 @@
 package br.com.maximasistemas.todo.teste
 
-import br.com.maximasistemas.todo.base.MvpActivity
+import br.com.maximasistemas.arch.mvp.MvpActivity
 
 class TesteActivity : MvpActivity<TesteView, TestePresenter>(), TesteView {
 

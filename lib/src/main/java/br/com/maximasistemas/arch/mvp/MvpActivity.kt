@@ -1,4 +1,4 @@
-package br.com.maximasistemas.todo.base
+package br.com.maximasistemas.arch.mvp
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.ViewModelProviders

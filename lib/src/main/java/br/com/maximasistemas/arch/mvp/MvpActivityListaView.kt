@@ -1,4 +1,4 @@
-package br.com.maximasistemas.todo.base
+package br.com.maximasistemas.arch.mvp
 
 interface MvpActivityListaView {
 
@@ -8,4 +8,5 @@ interface MvpActivityListaView {
 
     fun mostrarCarregando()
 
+    fun exibirLista(lista: MutableCollection<Any>)
 }

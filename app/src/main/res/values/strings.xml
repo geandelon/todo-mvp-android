@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Teste</string>
+
+    <string name="nenhum_dado">Nada para exibir</string>
 </resources>

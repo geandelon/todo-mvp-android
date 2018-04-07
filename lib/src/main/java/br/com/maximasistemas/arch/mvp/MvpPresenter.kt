@@ -1,4 +1,4 @@
-package br.com.maximasistemas.todo.base
+package br.com.maximasistemas.arch.mvp
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
