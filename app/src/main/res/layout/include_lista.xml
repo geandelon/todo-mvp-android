@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:animateLayoutChanges="false"
+                android:fitsSystemWindows="@bool/fitsSystemWindows"
+                android:orientation="vertical">
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/include_lista_pgb_processando"
+        style="@style/AppProgressBarLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/include_lista_lly_texto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/include_lista_imv_imagem_vazio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_max_solucoes"
+            android:tint="@color/gray"/>
+
+        <TextView
+            android:id="@+id/include_lista_txv_nenhum_dado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/nenhum_dado"
+            android:textColor="@color/gray"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/include_lista_srl_atualiza"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:enabled="false"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/include_lista_ryv_dados"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

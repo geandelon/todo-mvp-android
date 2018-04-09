@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">Teste</string>
+    <string name="app_name">TO DO MVP</string>
 
     <string name="nenhum_dado">Nada para exibir</string>
+
+
+
+    <string name="customactivityoncrash_error_activity_error_occurred_explanation">Infelizmente aconteceu um probleminha.\nJá notificamos nossos Engenheiros de Software.\nDesculpe-nos pela incoveniência.</string>
+    <string name="customactivityoncrash_error_activity_restart_app">Reiniciar o Aplicativo</string>
+    <string name="customactivityoncrash_error_activity_close_app">Fechar o Aplicativo</string>
+    <string name="customactivityoncrash_error_activity_error_details">Detalhes do Erro</string>
+    <string name="customactivityoncrash_error_activity_error_details_title">Detalhes do Erro</string>
+    <string name="customactivityoncrash_error_activity_error_details_close">Fechar</string>
+    <string name="customactivityoncrash_error_activity_error_details_copy">Copiar os dados</string>
+    <string name="customactivityoncrash_error_activity_error_details_copied">Detalhes do erro copiados</string>
+    <string name="customactivityoncrash_error_activity_error_details_clipboard_label">Informação do Erro</string>
+
 </resources>

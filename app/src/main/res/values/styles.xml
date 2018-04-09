@@ -14,4 +14,54 @@
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
+    <style name="Theme.Catalogo.Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppProgressBar">
+        <item name="android:minWidth">48dp</item>
+        <item name="android:maxWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+        <item name="android:indeterminate">true</item>
+        <item name="cpb_colors">@array/progress_colors</item>
+        <item name="cpb_stroke_width">6dp</item>
+        <item name="cpb_min_sweep_angle">10</item>
+        <item name="cpb_max_sweep_angle">300</item>
+        <item name="cpb_rotation_speed">1.0</item>
+        <item name="cpb_sweep_speed">2.5</item>
+    </style>
+
+    <style name="AppProgressBarLarge" parent="AppProgressBar">
+        <item name="android:minWidth">76dp</item>
+        <item name="android:maxWidth">76dp</item>
+        <item name="android:minHeight">76dp</item>
+        <item name="android:maxHeight">76dp</item>
+    </style>
+
+    <style name="AppTextViewTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

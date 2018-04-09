@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "207252572735",
+    "firebase_url": "https://todo-android-21948.firebaseio.com",
+    "project_id": "todo-android-21948",
+    "storage_bucket": "todo-android-21948.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207252572735:android:c1dfe71ddf6fb59c",
+        "android_client_info": {
+          "package_name": "br.com.maximasistemas.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207252572735-7bd77kp0ni5femuops6icv8dnsa9milr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9MqN5vrRKuGeXOQ8H019rjMtjheQbJdE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
