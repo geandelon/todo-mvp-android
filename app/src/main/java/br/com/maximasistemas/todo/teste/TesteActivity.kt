@@ -4,7 +4,7 @@ import br.com.maximasistemas.arch.mvp.MvpActivity
 
 class TesteActivity : MvpActivity<TesteView, TestePresenter>(), TesteView {
 
-    override fun getClassePresenter(): Class<TestePresenter> {
+    override fun getPresenterClass(): Class<TestePresenter> {
         return TestePresenter::class.java
     }
 

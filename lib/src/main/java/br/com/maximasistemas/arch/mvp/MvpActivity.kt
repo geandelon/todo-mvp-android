@@ -9,11 +9,11 @@ abstract class MvpActivity<V, P : MvpPresenter<V>> : AppCompatActivity(), Lifecy
 
     lateinit var viewModel: MvpPresenter<V>
 
-    abstract fun getClassePresenter(): Class<P>
+    abstract fun getPresenterClass(): Class<P>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(getClassePresenter())
+        viewModel = ViewModelProviders.of(this).get(getPresenterClass())
         viewModel.attachLifecycle(lifecycle)
         viewModel.attachView(this as V)
     }

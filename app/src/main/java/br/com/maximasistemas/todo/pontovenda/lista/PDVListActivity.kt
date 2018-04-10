@@ -1,4 +1,4 @@
-package br.com.maximasistemas.todo.pontovenda
+package br.com.maximasistemas.todo.pontovenda.lista
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -7,52 +7,65 @@ import android.support.v7.widget.Toolbar
 import android.view.animation.OvershootInterpolator
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.Toast
 import br.com.maximasistemas.arch.mvp.MvpActivity
 import br.com.maximasistemas.todo.R
+import br.com.maximasistemas.todo.pontovenda.detalhe.PDVDetailActivity
 import br.com.maximasistemas.todo.pontovenda.modelo.PDV
+import br.com.maximasistemas.todo.util.Constantes
 import br.com.maximasistemas.todo.util.empty
 import fr.castorflex.android.circularprogressbar.CircularProgressBar
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_pdv.*
 import kotlinx.android.synthetic.main.include_lista.*
+import org.jetbrains.anko.startActivity
 
-class PDVActivity : MvpActivity<PDVView, PDVPresenter>() {
+class PDVListActivity : MvpActivity<PDVListView, PDVListPresenter>() {
 
     lateinit var rcvDados: RecyclerView
     lateinit var pgbProcessando: ProgressBar
     lateinit var llyTexto: LinearLayout
-    val pdvAdapter = PDVAdapter(this)
 
-    override fun getClassePresenter(): Class<PDVPresenter> {
-        return PDVPresenter::class.java
+    override fun getPresenterClass(): Class<PDVListPresenter> {
+        return PDVListPresenter::class.java
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdv)
 
+        setSupportActionBar(activity_pdv_icl_toolbar as Toolbar?)
+        supportActionBar?.setTitle("Clientes")
+
         rcvDados = include_lista_ryv_dados
         pgbProcessando = include_lista_pgb_processando
         llyTexto = include_lista_lly_texto
 
-        setSupportActionBar(activity_pdv_icl_toolbar as Toolbar?)
-        supportActionBar?.setTitle("Clientes")
-
         val llm = LinearLayoutManager(this)
-        rcvDados.setLayoutManager(llm)
-        rcvDados.setHasFixedSize(true)
-        rcvDados.setItemAnimator(SlideInUpAnimator(OvershootInterpolator(1f)))
-        rcvDados.adapter = pdvAdapter
+
+        with(rcvDados) {
+            setLayoutManager(llm)
+            setHasFixedSize(true)
+            setItemAnimator(SlideInUpAnimator(OvershootInterpolator(1f)))
+            adapter = PDVListAdapter({ pdv: PDV -> onClickPDV(pdv) })
+        }
 
         exibirLista(carregarPDVs())
-        pdvAdapter.notifyDataSetChanged()
+    }
+
+    fun onClickPDV(pdv: PDV) {
+        Toast.makeText(this, pdv.razaoSocial, Toast.LENGTH_LONG).show()
+        startActivity<PDVDetailActivity>(Constantes.KEY_PDV to pdv)
     }
 
     fun exibirLista(lista: MutableList<PDV>) {
-        pdvAdapter.lista = lista
         rcvDados.setVisibility(RecyclerView.VISIBLE)
         pgbProcessando.setVisibility(CircularProgressBar.GONE)
         llyTexto.setVisibility(LinearLayout.GONE)
+
+        var adapter = (rcvDados.adapter as PDVListAdapter)
+        adapter.lista = lista
+        adapter.notifyDataSetChanged()
     }
 
     private fun carregarPDVs(): MutableList<PDV> {
