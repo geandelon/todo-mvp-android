@@ -6,7 +6,7 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import br.com.maximasistemas.todo.R
-import br.com.maximasistemas.todo.pontovenda.lista.PdvListActivity
+import br.com.maximasistemas.todo.pontovenda.lista.PdvListaActivity
 import br.com.maximasistemas.todo.util.Constantes
 
 class SplashActivity : AppCompatActivity(), Runnable {
@@ -32,7 +32,7 @@ class SplashActivity : AppCompatActivity(), Runnable {
     }
 
     override fun run() {
-        startActivity(Intent(this, PdvListActivity::class.java).apply {
+        startActivity(Intent(this, PdvListaActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         })
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

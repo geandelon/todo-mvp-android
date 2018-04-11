@@ -4,15 +4,15 @@ import android.os.Bundle
 import br.com.maximasistemas.arch.mvp.MvpActivity
 import br.com.maximasistemas.todo.R
 
-class PdvDetailActivity : MvpActivity<PdvDetailView, PdvDetailPresenter>() {
+class PdvDetalheActivity : MvpActivity<PdvDetalheView, PdvDetalhePresenter>() {
 
-    override fun getPresenterClass(): Class<PdvDetailPresenter> {
-        return PdvDetailPresenter::class.java
+    override fun obterClassePresenter(): Class<PdvDetalhePresenter> {
+        return PdvDetalhePresenter::class.java
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pdv_detail)
+        setContentView(R.layout.activity_pdv_detalhe)
     }
 
 }

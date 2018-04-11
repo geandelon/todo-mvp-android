@@ -8,7 +8,7 @@ import br.com.maximasistemas.todo.R
 import br.com.maximasistemas.todo.pontovenda.modelo.Pdv
 import kotlinx.android.synthetic.main.item_pdv.view.*
 
-class PdvListAdapter(val onClick: (Pdv) -> Unit) : RecyclerView.Adapter<PdvListAdapter.ViewHolder>() {
+class PdvListaAdapter(val onClick: (Pdv) -> Unit) : RecyclerView.Adapter<PdvListaAdapter.ViewHolder>() {
 
     lateinit var lista: MutableList<Pdv>
 

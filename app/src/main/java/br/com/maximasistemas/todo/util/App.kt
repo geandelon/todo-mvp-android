@@ -8,7 +8,7 @@ import com.crashlytics.android.Crashlytics
 import timber.log.Timber
 
 /**
- * Created by geandelon on 03/03/2018.
+ *
  */
 class App : Application() {
 

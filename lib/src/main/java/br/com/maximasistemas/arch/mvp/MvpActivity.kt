@@ -7,21 +7,21 @@ import android.support.v7.app.AppCompatActivity
 
 abstract class MvpActivity<V, P : MvpPresenter<V>> : AppCompatActivity(), LifecycleOwner {
 
-    lateinit var viewModel: MvpPresenter<V>
+    lateinit var presenter: MvpPresenter<V>
 
-    abstract fun getPresenterClass(): Class<P>
+    abstract fun obterClassePresenter(): Class<P>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(getPresenterClass())
-        viewModel.attachLifecycle(lifecycle)
-        viewModel.attachView(this as V)
+        presenter = ViewModelProviders.of(this).get(obterClassePresenter())
+        presenter.attachLifecycle(lifecycle)
+        presenter.attachView(this as V)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        viewModel.detachLifecycle(lifecycle)
-        viewModel.detachView()
+        presenter.detachLifecycle(lifecycle)
+        presenter.detachView()
     }
 
 }

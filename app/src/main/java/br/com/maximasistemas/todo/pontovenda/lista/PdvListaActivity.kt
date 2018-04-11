@@ -10,7 +10,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import br.com.maximasistemas.arch.mvp.MvpActivity
 import br.com.maximasistemas.todo.R
-import br.com.maximasistemas.todo.pontovenda.detalhe.PdvDetailActivity
+import br.com.maximasistemas.todo.pontovenda.detalhe.PdvDetalheActivity
 import br.com.maximasistemas.todo.pontovenda.modelo.Pdv
 import br.com.maximasistemas.todo.util.Constantes
 import br.com.maximasistemas.todo.util.empty
@@ -20,14 +20,14 @@ import kotlinx.android.synthetic.main.activity_pdv.*
 import kotlinx.android.synthetic.main.include_lista.*
 import org.jetbrains.anko.startActivity
 
-class PdvListActivity : MvpActivity<PdvListView, PdvListPresenter>() {
+class PdvListaActivity : MvpActivity<PdvListaView, PdvListaPresenter>() {
 
     lateinit var rcvDados: RecyclerView
     lateinit var pgbProcessando: ProgressBar
     lateinit var llyTexto: LinearLayout
 
-    override fun getPresenterClass(): Class<PdvListPresenter> {
-        return PdvListPresenter::class.java
+    override fun obterClassePresenter(): Class<PdvListaPresenter> {
+        return PdvListaPresenter::class.java
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class PdvListActivity : MvpActivity<PdvListView, PdvListPresenter>() {
             setLayoutManager(llm)
             setHasFixedSize(true)
             setItemAnimator(SlideInUpAnimator(OvershootInterpolator(1f)))
-            adapter = PdvListAdapter({ pdv: Pdv -> onClickPDV(pdv) })
+            adapter = PdvListaAdapter({ pdv: Pdv -> onClickPDV(pdv) })
         }
 
         exibirLista(obterListaPdv())
@@ -55,7 +55,7 @@ class PdvListActivity : MvpActivity<PdvListView, PdvListPresenter>() {
 
     fun onClickPDV(pdv: Pdv) {
         Toast.makeText(this, pdv.razaoSocial, Toast.LENGTH_LONG).show()
-        startActivity<PdvDetailActivity>(Constantes.EXTRA_PDV to pdv)
+        startActivity<PdvDetalheActivity>(Constantes.EXTRA_PDV to pdv)
     }
 
     fun exibirLista(lista: MutableList<Pdv>) {
@@ -63,7 +63,7 @@ class PdvListActivity : MvpActivity<PdvListView, PdvListPresenter>() {
         pgbProcessando.setVisibility(CircularProgressBar.GONE)
         llyTexto.setVisibility(LinearLayout.GONE)
 
-        var adapter = (rcvDados.adapter as PdvListAdapter)
+        var adapter = (rcvDados.adapter as PdvListaAdapter)
         adapter.lista = lista
         adapter.notifyDataSetChanged()
     }
