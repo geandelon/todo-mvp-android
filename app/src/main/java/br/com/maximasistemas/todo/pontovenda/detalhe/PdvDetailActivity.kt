@@ -4,10 +4,10 @@ import android.os.Bundle
 import br.com.maximasistemas.arch.mvp.MvpActivity
 import br.com.maximasistemas.todo.R
 
-class PDVDetailActivity : MvpActivity<PDVDetailView, PDVDetailPresenter>() {
+class PdvDetailActivity : MvpActivity<PdvDetailView, PdvDetailPresenter>() {
 
-    override fun getPresenterClass(): Class<PDVDetailPresenter> {
-        return PDVDetailPresenter::class.java
+    override fun getPresenterClass(): Class<PdvDetailPresenter> {
+        return PdvDetailPresenter::class.java
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

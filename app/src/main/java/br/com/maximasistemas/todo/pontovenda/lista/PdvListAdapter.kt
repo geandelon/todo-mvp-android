@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.maximasistemas.todo.R
-import br.com.maximasistemas.todo.pontovenda.modelo.PDV
-import kotlinx.android.synthetic.main.adapter_pdv.view.*
+import br.com.maximasistemas.todo.pontovenda.modelo.Pdv
+import kotlinx.android.synthetic.main.item_pdv.view.*
 
-class PDVListAdapter(val onClick: (PDV) -> Unit) : RecyclerView.Adapter<PDVListAdapter.ViewHolder>() {
+class PdvListAdapter(val onClick: (Pdv) -> Unit) : RecyclerView.Adapter<PdvListAdapter.ViewHolder>() {
 
-    lateinit var lista: MutableList<PDV>
+    lateinit var lista: MutableList<Pdv>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_pdv, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pdv, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,7 +28,7 @@ class PDVListAdapter(val onClick: (PDV) -> Unit) : RecyclerView.Adapter<PDVListA
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(pdv: PDV, onClick: (PDV) -> Unit) {
+        fun bindView(pdv: Pdv, onClick: (Pdv) -> Unit) {
             with(itemView) {
                 val razaoSocialFormatada = "${pdv.codigo} - ${pdv.razaoSocial}"
                 adapter_pdv_txv_razao_social.text = razaoSocialFormatada
